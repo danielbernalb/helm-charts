@@ -128,12 +128,12 @@ persistence:
 
 ## Add custom volume and volumeMounts
 ##
- volumes:
+volumes:
    - name: influxdb2-templates
      hostPath:
        path: /data/influxdb2
        type: Directory
-# mountPoints:
+#mountPoints:
 #   - name: influxdb2-templates
 #     mountPath: /influxdb2-templates
 #     readOnly: true
