@@ -123,16 +123,16 @@ persistence:
   # storageClass: "-"
   accessMode: ReadWriteOnce
   size: 50Gi
-  mountPath: /data/influxdb2
+  mountPath: /var/lib/influxdb2
   subPath: ""
 
 ## Add custom volume and volumeMounts
 ##
-# volumes:
-#   - name: influxdb2-templates
-#     hostPath:
-#       path: /data/influxdb2-templates
-#       type: Directory
+ volumes:
+   - name: influxdb2-templates
+     hostPath:
+       path: /data/influxdb2
+       type: Directory
 # mountPoints:
 #   - name: influxdb2-templates
 #     mountPath: /influxdb2-templates
