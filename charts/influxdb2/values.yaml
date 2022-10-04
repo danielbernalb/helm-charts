@@ -97,8 +97,8 @@ adminUser:
   retention_policy: "0s"
   ## Leave empty to generate a random password and token.
   ## Or fill any of these values to use fixed values.
-  password: ""
-  token: ""
+  password: "daniel2022"
+  token: "daniel2022"
 
   ## The password and token are obtained from an existing secret. The expected
   ## keys are `admin-password` and `admin-token`.
@@ -108,7 +108,7 @@ adminUser:
 ## Persist data to a persistent volume
 ##
 persistence:
-  enabled: true
+  enabled: false
   ## If true will use an existing PVC instead of creating one
   # useExisting: false
   ## Name of existing PVC to be used in the influx deployment
