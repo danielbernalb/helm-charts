@@ -133,10 +133,10 @@ volumes:
      hostPath:
        path: /data/influxdb2
        type: Directory
-#mountPoints:
-#   - name: influxdb2-templates
-#     mountPath: /influxdb2-templates
-#     readOnly: true
+mountPoints:
+   - name: influxdb2-templates
+     mountPath: /influxdb2-templates
+     readOnly: false
 
 ## Allow executing custom init scripts
 ## If the container finds any files with the .sh extension inside of the
