@@ -114,7 +114,7 @@ serviceAccount:
 ## ref: https://docs.influxdata.com/telegraf/v1.1/administration/configuration/
 config:
   agent:
-    interval: "10s"
+    interval: "1s"
     round_interval: true
     metric_batch_size: 1000
     metric_buffer_limit: 10000
@@ -139,8 +139,9 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://influxdb.monitoring.svc:8086"
-        database: "telegraf"
+          - "http://influxdb:8086"
+        database: "sensors"
+        skip_database_creation: true
   inputs:
     - statsd:
         service_address: ":8125"
@@ -151,6 +152,32 @@ config:
         metric_separator: "_"
         allowed_pending_messages: 10000
         percentile_limit: 1000
+    - mqtt_consumer:
+        qos: 0
+        servers:
+          - "tcp://mosquitto:1883"
+        topics:
+          - "telegraf/host01/cpu"
+          - "telegraf/+/mem"
+          - "sensors/#"
+        topic_parsing:
+          - topic: "telegraf/one/cpu/23"
+            measurement: "_/_/measurement/_"
+            types:
+              test: "int"
+        data_format: "json_v2"
+        json_v2:
+          - measurement_name: ""
+            timestamp_path: ""
+            object:
+              - path: "@this"
+                tags:
+                  - "device"
+                  - "data.type"
+                  - "owner"
+                field:
+                  - path: ""
+                    type: "int"
 metrics:
   health:
     enabled: false
