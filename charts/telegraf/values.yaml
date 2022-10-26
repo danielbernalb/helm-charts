@@ -139,7 +139,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://192.168.0.115:8086"
+          - "http://192.168.0.115:30584"
         database: "sensors"
         skip_database_creation: true
   inputs:
@@ -155,29 +155,12 @@ config:
     - mqtt_consumer:
         qos: 0
         servers:
-          - "tcp://mosquitto:1883"
+          - "tcp://192.168.0.115:30183"
         topics:
           - "telegraf/host01/cpu"
           - "telegraf/+/mem"
           - "sensors/#"
-        topic_parsing:
-          - topic: "telegraf/one/cpu/23"
-            measurement: "_/_/measurement/_"
-            types:
-              test: "int"
-        data_format: "json_v2"
-        json_v2:
-          - measurement_name: ""
-            timestamp_path: ""
-            object:
-              - path: "@this"
-                tags:
-                  - "device"
-                  - "data.type"
-                  - "owner"
-                field:
-                  - path: ""
-                    type: "int"
+        data_format: "json"
 metrics:
   health:
     enabled: false
