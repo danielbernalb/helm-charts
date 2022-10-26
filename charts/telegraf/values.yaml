@@ -16,7 +16,7 @@ args: []
 # be added to the environment (must be manually created)
 # This can be useful for auth tokens, etc.
 
-# envFromSecret: "telegraf-tokens"
+ envFromSecret: ""2dWBHgQIhnlqjn-nKz1c7dOqP2dGa0Pna0g_quXrdL_gS5PaHc9kcXV4oIOvvGsI2575KY9EsV0EbcyvuqjY5Q==""
 env:
   - name: HOSTNAME
     value: "telegraf-polling-service"
