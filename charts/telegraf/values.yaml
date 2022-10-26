@@ -15,8 +15,7 @@ args: []
 # The name of a secret in the same kubernetes namespace which contains values to
 # be added to the environment (must be manually created)
 # This can be useful for auth tokens, etc.
-
- envFromSecret: ""2dWBHgQIhnlqjn-nKz1c7dOqP2dGa0Pna0g_quXrdL_gS5PaHc9kcXV4oIOvvGsI2575KY9EsV0EbcyvuqjY5Q==""
+envFromSecret: "2dWBHgQIhnlqjn-nKz1c7dOqP2dGa0Pna0g_quXrdL_gS5PaHc9kcXV4oIOvvGsI2575KY9EsV0EbcyvuqjY5Q=="
 env:
   - name: HOSTNAME
     value: "telegraf-polling-service"
