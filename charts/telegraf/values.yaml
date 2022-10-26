@@ -139,9 +139,9 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://influxdb:8086"
+          - "http://192.168.0.115:8086"
         database: "sensors"
-        skip_database_creation: true
+        skip_database_creation: false
   inputs:
     - statsd:
         service_address: ":8125"
